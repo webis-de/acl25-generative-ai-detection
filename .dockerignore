@@ -1,0 +1,12 @@
+# Ignore everything,
+*
+
+# Whitelist Python modules
+!genai_detection/**
+!poetry.lock
+!pyproject.toml
+!README.md
+
+# Ignore Python byte files
+**/__pycache__/
+**/*.py[cod]
