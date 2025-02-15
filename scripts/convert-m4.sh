@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+genai-detection dataset convert \
+    --json-file data/datasets/m4/data/arxiv_bloomz.jsonl \
+    --json-file data/datasets/m4/data/arxiv_chatGPT.jsonl \
+    --json-file data/datasets/m4/data/arxiv_davinci.jsonl \
+    --json-file data/datasets/m4/data/arxiv_cohere.jsonl \
+    --json-file data/datasets/m4/data/arxiv_dolly.jsonl \
+    --json-file data/datasets/m4/data/id-newspaper_chatGPT.jsonl \
+    --json-file data/datasets/m4/data/reddit_bloomz.jsonl \
+    --json-file data/datasets/m4/data/reddit_chatGPT.jsonl \
+    --json-file data/datasets/m4/data/reddit_davinci.jsonl \
+    --json-file data/datasets/m4/data/reddit_cohere.jsonl \
+    --json-file data/datasets/m4/data/reddit_dolly.jsonl \
+    --json-file data/datasets/m4/data/wikihow_bloomz.jsonl \
+    --json-file data/datasets/m4/data/wikihow_chatGPT.jsonl \
+    --json-file data/datasets/m4/data/wikihow_davinci.jsonl \
+    --json-file data/datasets/m4/data/wikihow_cohere.jsonl \
+    --json-file data/datasets/m4/data/wikipedia_bloomz.jsonl \
+    --json-file data/datasets/m4/data/wikipedia_chatgpt.jsonl \
+    --json-file data/datasets/m4/data/wikipedia_davinci.jsonl \
+    --json-file data/datasets/m4/data/wikipedia_cohere.jsonl \
+    --json-file data/datasets/m4/data/wikipedia_dolly.jsonl \
+    --id-col ___does_not_exist \
+    --text-col human_text \
+    --human-text-col abstract \
+    --human-text-col human_text \
+    --machine-text-col machine_text \
+    --model-col model \
+    --drop-col id \
+    --drop-col probas \
+    --drop-col logits \
+    --drop-col machine_abstract \
+    --drop-col q_id \
+    --drop-col a_id \
+    --drop-col score_x \
+    --drop-col source_id \
+    --drop-col source_ID \
+    --drop-col "Unnamed: 0" \
+    --output data/datasets/m4-converted \
+    --val-split-size 800 \
+    --test-split-size 1000
