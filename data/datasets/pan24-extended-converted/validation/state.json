@@ -4,11 +4,13 @@
       "filename": "data-00000-of-00001.arrow"
     }
   ],
-  "_fingerprint": "2fe0fc9d02a1531c",
+  "_fingerprint": "de0e4139efac318f",
   "_format_columns": [
+    "gnews_meta",
     "id",
     "label",
     "model",
+    "summary",
     "text"
   ],
   "_format_kwargs": {},

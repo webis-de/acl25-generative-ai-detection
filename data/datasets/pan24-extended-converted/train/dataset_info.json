@@ -20,6 +20,14 @@
     "model": {
       "dtype": "string",
       "_type": "Value"
+    },
+    "summary": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "gnews_meta": {
+      "dtype": "string",
+      "_type": "Value"
     }
   },
   "homepage": "",

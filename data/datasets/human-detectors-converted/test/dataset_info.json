@@ -1,0 +1,221 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "model": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "prompt_id": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "title": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "sub-title": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "author": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "source": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "issue": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "section": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "link": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "text": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "ground_truth": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "pangram": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "pangram_humanizers": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "gptzero": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "e5_lora": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "RADAR": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "binoculars_lowfpr": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "binoculars_accuracy": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_1": {
+      "comment": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "confidence": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "guess": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "annotator_2": {
+      "comment": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "confidence": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "guess": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "annotator_3": {
+      "comment": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "confidence": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "guess": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "annotator_4": {
+      "comment": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "confidence": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "guess": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "annotator_5": {
+      "comment": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "confidence": {
+        "dtype": "int64",
+        "_type": "Value"
+      },
+      "guess": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "annotator_1_guess": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_1_confidence": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_1_comment": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_2_guess": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_2_confidence": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_2_comment": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_3_guess": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_3_confidence": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_3_comment": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_4_guess": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_4_confidence": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_4_comment": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_5_guess": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_5_confidence": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "annotator_5_comment": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "label": {
+      "names": [
+        "human",
+        "machine"
+      ],
+      "_type": "ClassLabel"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}
