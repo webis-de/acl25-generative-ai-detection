@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from itertools import batched
 from typing import Iterable, List
 
 import numpy as np
@@ -24,7 +25,10 @@ __all__ = ['PPMdDetector']
 
 class PPMdDetector(DetectorBase):
     """
-    Baseline LLM detector measuring the PPMd compression-based cosine between text halves.
+    Baseline LLM detector measuring the PPMd compression-based cosine between text pairs.
+
+    The input is a list of texts where text ``i`` and text ``i+1`` belong to a pair. The output is a list
+    of CBC (compression-based cosine) scores for each pair that is half the size of the input list.
 
     References:
     ===========
@@ -36,11 +40,21 @@ class PPMdDetector(DetectorBase):
         Part F1305. Association for Computing Machinery. https://doi.org/10.1145/3098954.3104050.
     """
 
-    def _get_score_impl(self, text: Iterable[str]) -> List[float]:
+    def __init__(self, strict=False):
+        """
+        :param strict: throw a :class:`ValueError` if the last input batch is not a full pair
+        """
+        self.strict = strict
+
+    def _get_score_impl(self, text: Iterable[str]) -> np.ndarray:
         scores = []
-        for t in text:
-            cx = len(pyppmd.compress(t[:len(t) // 2]))
-            cy = len(pyppmd.compress(t[len(t) // 2:]))
-            cxy = len(pyppmd.compress(t))
+        for t in batched(text, 2):
+            if len(t) != 2:
+                if self.strict:
+                    raise ValueError('Final batch is not a full pair.')
+                break
+            cx = len(pyppmd.compress(t[0]))
+            cy = len(pyppmd.compress(t[1]))
+            cxy = len(pyppmd.compress(t[0] + t[1]))
             scores.append((cx + cy - cxy) / np.sqrt(cx * cy))
-        return scores
+        return np.array(scores)

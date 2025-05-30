@@ -26,9 +26,26 @@ def main():
 
 
 def _txt_dir_to_dataset(basedir, is_human, recursive, model_name_parent):
+    schema = DATASET_FEATURES
+    new_fields = set()
+
     def _read_files(paths):
         for p in paths:  # type: Path
-            if t := open(p, errors='ignore').read().strip():
+            if p.suffix == '.jsonl':
+                for l in open(p, errors='ignore'):
+                    d = json.loads(l)
+                    d['id'] = '/'.join([p.parents[1].name, p.stem, d.get('id') or uuid.uuid4().hex])
+                    d['label'] = 'human' if is_human else 'machine'
+                    d['model'] = d.get('model', d['label'])
+                    # Add additional fields to schema
+                    for k in d.keys():
+                        if k not in schema:
+                            schema[k] = Value('string')
+                            new_fields.add(k)
+                        if k in new_fields:
+                            d[k] = json.dumps(d[k])
+                    yield d
+            elif t := open(p, errors='ignore').read().strip():
                 yield {
                     'id': '/'.join([p.parents[1].name, p.parents[0].name, p.stem]),
                     'text': t,
@@ -37,13 +54,12 @@ def _txt_dir_to_dataset(basedir, is_human, recursive, model_name_parent):
                 }
 
     if recursive:
-        p = list(Path(basedir).rglob('**/*.txt'))
+        p = list(Path(basedir).rglob('**/*.txt')) or list(Path(basedir).rglob('**/*.jsonl'))
     else:
-        p = list(Path(basedir).glob('*.txt'))
-
+        p = list(Path(basedir).glob('*.txt')) or list(Path(basedir).glob('*.jsonl'))
     if not p:
-        raise click.UsageError(f'No text files found in "{basedir}"')
-    return Dataset.from_generator(_read_files, features=DATASET_FEATURES, gen_kwargs={'paths': p})
+        raise click.UsageError(f'No text or JSONL files found in "{basedir}"')
+    return Dataset.from_generator(_read_files, features=schema, gen_kwargs={'paths': p})
 
 
 def _load_dataset_and_adapt_schema(load_fn, filename, column_map, human_labels, drop_cols=None, **load_kwargs):
@@ -241,9 +257,9 @@ def filter_raid(input_file, output_file, keep_model, min_length, attacks):
 
 @main.command()
 @click.option('-h', '--human-dir', type=click.Path(exists=True), multiple=True,
-              help='Directory with human texts')
+              help='Directory with human txt or per-topic JSONL files')
 @click.option('-m', '--machine-dir', type=click.Path(exists=True), multiple=True,
-              help='Directory with machine texts')
+              help='Directory with machine txt or per-topic JSONL files')
 @click.option('-r', '--recursive', is_flag=True, help='Scan text directories recursively')
 @click.option('--model-name-parent', type=click.IntRange(0), default=0,
               help='Which direct parent dir name corresponds to model name')
