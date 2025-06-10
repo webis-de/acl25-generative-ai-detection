@@ -15,7 +15,7 @@ datasets = "^3.1.0"
 accelerate = "^1.2.1"
 peft = "^0.15.2"
 click = "^8.2.0"
-torch = "^2.5.1"
+torch = "^2.7.1"
 bitsandbytes = "^0.46.0"
 tqdm = {extras = ["notebook"], version = "^4.67.1"}
 scikit-learn = "^1.6.1"
