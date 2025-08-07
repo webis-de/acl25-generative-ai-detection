@@ -22,7 +22,7 @@ scikit-learn = "^1.6.1"
 google-cloud-aiplatform = "^1.95.1"
 openai = "^1.59.8"
 pyppmd = "^1.1.1"
-skops = "^0.11.0"
+skops = "^0.13.0"
 xgboost = "^3.0.2"
 seaborn = {extras = ["stats"], version = "^0.13.2"}
 parallel-pandas = "^0.6.5"

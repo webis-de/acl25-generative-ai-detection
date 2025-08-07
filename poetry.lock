@@ -3776,6 +3776,24 @@ test = ["appdirs (==1.4.4)", "covdefaults (>=2.3)", "pytest (>=8.3.4)", "pytest-
 type = ["mypy (>=1.14.1)"]
 
 [[package]]
+name = "prettytable"
+version = "3.16.0"
+description = "A simple Python library for easily displaying tabular data in a visually appealing ASCII table format"
+optional = false
+python-versions = ">=3.9"
+groups = ["main"]
+files = [
+    {file = "prettytable-3.16.0-py3-none-any.whl", hash = "sha256:b5eccfabb82222f5aa46b798ff02a8452cf530a352c31bddfa29be41242863aa"},
+    {file = "prettytable-3.16.0.tar.gz", hash = "sha256:3c64b31719d961bf69c9a7e03d0c1e477320906a98da63952bc6698d6164ff57"},
+]
+
+[package.dependencies]
+wcwidth = "*"
+
+[package.extras]
+tests = ["pytest", "pytest-cov", "pytest-lazy-fixtures"]
+
+[[package]]
 name = "prometheus-client"
 version = "0.22.0"
 description = "Python client for the Prometheus monitoring system."
@@ -5254,21 +5272,22 @@ files = [
 
 [[package]]
 name = "skops"
-version = "0.11.0"
+version = "0.13.0"
 description = "A set of tools, related to machine learning in production."
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "skops-0.11.0-py3-none-any.whl", hash = "sha256:8c6109e27e4d762948cad7d21de008034bd14e15f111e9405c7930e74a7fe8c1"},
-    {file = "skops-0.11.0.tar.gz", hash = "sha256:229c867fbc5e669a1c6a88661c3883a14f3591abd9bfa6073df308d63ae1fa3a"},
+    {file = "skops-0.13.0-py3-none-any.whl", hash = "sha256:55e2cccb18c86f5916e4cfe5acf55ed7b0eecddf08a151906414c092fa5926dc"},
+    {file = "skops-0.13.0.tar.gz", hash = "sha256:66949fd3c95cbb5c80270fbe40293c0fe1e46cb4a921860e42584dd9c20ebeb1"},
 ]
 
 [package.dependencies]
-huggingface-hub = ">=0.17.0"
+numpy = ">=1.25.0"
 packaging = ">=17.0"
-scikit-learn = ">=1.1"
-tabulate = ">=0.8.8"
+prettytable = ">=3.9"
+scikit-learn = ">=1.2"
+scipy = ">=1.10.0"
 
 [package.extras]
 rich = ["rich (>=12)"]
@@ -5386,21 +5405,6 @@ mpmath = ">=1.1.0,<1.4"
 
 [package.extras]
 dev = ["hypothesis (>=6.70.0)", "pytest (>=7.1.0)"]
-
-[[package]]
-name = "tabulate"
-version = "0.9.0"
-description = "Pretty-print tabular data"
-optional = false
-python-versions = ">=3.7"
-groups = ["main"]
-files = [
-    {file = "tabulate-0.9.0-py3-none-any.whl", hash = "sha256:024ca478df22e9340661486f85298cff5f6dcdba14f3813e8830015b9ed1948f"},
-    {file = "tabulate-0.9.0.tar.gz", hash = "sha256:0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"},
-]
-
-[package.extras]
-widechars = ["wcwidth"]
 
 [[package]]
 name = "terminado"
@@ -6264,4 +6268,4 @@ propcache = ">=0.2.1"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "a1ccebe84e72a8e87d133d6ea730c10452223aba6a8204e0610a72ea4baa6357"
+content-hash = "6206cb2b2f5b9fc5d93efa4e31066e358e2f1c5b08d56fb1d61c17b6b3ef1371"
